@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="activemq:activemq-store-jdbc:2.0" type="repository">
+    <properties maven-id="activemq:activemq-store-jdbc:2.0" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/activemq/activemq-store-jdbc/2.0/activemq-store-jdbc-2.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

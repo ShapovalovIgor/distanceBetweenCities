@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_distancebetweencities" default="compile.module.distancebetweencities">
+  <dirname property="module.distancebetweencities.basedir" file="${ant.file.module_distancebetweencities}"/>
+  
+  <property name="module.jdk.home.distancebetweencities" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.distancebetweencities" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.distancebetweencities" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.distancebetweencities" value="-encoding UTF-8 -source 1.7 ${compiler.args}"/>
+  
+  <property name="distancebetweencities.output.dir" value="${module.distancebetweencities.basedir}/out/production/distanceBetweenCities"/>
+  <property name="distancebetweencities.testoutput.dir" value="${module.distancebetweencities.basedir}/out/test/distanceBetweenCities"/>
+  
+  <path id="distancebetweencities.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="distancebetweencities.module.production.classpath">
+    <path refid="${module.jdk.classpath.distancebetweencities}"/>
+    <path refid="library.glassfish_4.1.0_-_jsf.classpath"/>
+    <path refid="library.glassfish_4.1.0.classpath"/>
+    <path refid="library.javax.servlet:com.springsource.javax.servlet.jsp.jstl:1.2.0.v20110728.classpath"/>
+    <path refid="library.commons-fileupload-1.3.1.classpath"/>
+    <path refid="library.activemq:activemq-store-jdbc:2.0.classpath"/>
+    <path refid="library.javax.servlet.jsp.jstl-api-1.2.1.classpath"/>
+    <path refid="library.ojdbc6.classpath"/>
+    <path refid="library.classes12.classpath"/>
+    <path refid="library.commons-io-2.4.classpath"/>
+  </path>
+  
+  <path id="distancebetweencities.runtime.production.module.classpath">
+    <pathelement location="${distancebetweencities.output.dir}"/>
+    <path refid="library.commons-fileupload-1.3.1.classpath"/>
+    <path refid="library.activemq:activemq-store-jdbc:2.0.classpath"/>
+    <path refid="library.javax.servlet.jsp.jstl-api-1.2.1.classpath"/>
+    <path refid="library.ojdbc6.classpath"/>
+    <path refid="library.commons-io-2.4.classpath"/>
+  </path>
+  
+  <path id="distancebetweencities.module.classpath">
+    <path refid="${module.jdk.classpath.distancebetweencities}"/>
+    <pathelement location="${distancebetweencities.output.dir}"/>
+    <path refid="library.glassfish_4.1.0_-_jsf.classpath"/>
+    <path refid="library.glassfish_4.1.0.classpath"/>
+    <path refid="library.javax.servlet:com.springsource.javax.servlet.jsp.jstl:1.2.0.v20110728.classpath"/>
+    <path refid="library.commons-fileupload-1.3.1.classpath"/>
+    <path refid="library.activemq:activemq-store-jdbc:2.0.classpath"/>
+    <path refid="library.javax.servlet.jsp.jstl-api-1.2.1.classpath"/>
+    <path refid="library.ojdbc6.classpath"/>
+    <path refid="library.classes12.classpath"/>
+    <path refid="library.commons-io-2.4.classpath"/>
+  </path>
+  
+  <path id="distancebetweencities.runtime.module.classpath">
+    <pathelement location="${distancebetweencities.testoutput.dir}"/>
+    <pathelement location="${distancebetweencities.output.dir}"/>
+    <path refid="library.glassfish_4.1.0_-_jsf.classpath"/>
+    <path refid="library.glassfish_4.1.0.classpath"/>
+    <path refid="library.javax.servlet:com.springsource.javax.servlet.jsp.jstl:1.2.0.v20110728.classpath"/>
+    <path refid="library.commons-fileupload-1.3.1.classpath"/>
+    <path refid="library.activemq:activemq-store-jdbc:2.0.classpath"/>
+    <path refid="library.javax.servlet.jsp.jstl-api-1.2.1.classpath"/>
+    <path refid="library.ojdbc6.classpath"/>
+    <path refid="library.classes12.classpath"/>
+    <path refid="library.commons-io-2.4.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.distancebetweencities">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.distancebetweencities">
+    <patternset refid="excluded.from.module.distancebetweencities"/>
+  </patternset>
+  
+  <path id="distancebetweencities.module.sourcepath">
+    <dirset dir="${module.distancebetweencities.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.distancebetweencities" depends="compile.module.distancebetweencities.production,compile.module.distancebetweencities.tests" description="Compile module distanceBetweenCities"/>
+  
+  <target name="compile.module.distancebetweencities.production" depends="register.custom.compilers" description="Compile module distanceBetweenCities; production classes">
+    <mkdir dir="${distancebetweencities.output.dir}"/>
+    <javac2 destdir="${distancebetweencities.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.distancebetweencities}/javac">
+      <compilerarg line="${compiler.args.distancebetweencities}"/>
+      <bootclasspath refid="distancebetweencities.module.bootclasspath"/>
+      <classpath refid="distancebetweencities.module.production.classpath"/>
+      <src refid="distancebetweencities.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.distancebetweencities"/>
+    </javac2>
+    
+    <copy todir="${distancebetweencities.output.dir}">
+      <fileset dir="${module.distancebetweencities.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.distancebetweencities.tests" depends="register.custom.compilers,compile.module.distancebetweencities.production" description="compile module distanceBetweenCities; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.distancebetweencities" description="cleanup module">
+    <delete dir="${distancebetweencities.output.dir}"/>
+    <delete dir="${distancebetweencities.testoutput.dir}"/>
+  </target>
+</project>

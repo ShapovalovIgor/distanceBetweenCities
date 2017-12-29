@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="distancebetweencities" default="all">
+  
+  
+  <property file="distancebetweencities.properties"/>
+  <!-- Uncomment the following property if no tests compilation is needed -->
+  <!-- 
+  <property name="skip.tests" value="true"/>
+   -->
+  
+  <!-- Compiler options -->
+  
+  <property name="compiler.debug" value="on"/>
+  <property name="compiler.generate.no.warnings" value="off"/>
+  <property name="compiler.args" value=""/>
+  <property name="compiler.max.memory" value="700m"/>
+  <patternset id="ignored.files">
+    <exclude name="**/CVS/**"/>
+    <exclude name="**/SCCS/**"/>
+    <exclude name="**/RCS/**"/>
+    <exclude name="**/rcs/**"/>
+    <exclude name="**/.DS_Store/**"/>
+    <exclude name="**/.svn/**"/>
+    <exclude name="**/.pyc/**"/>
+    <exclude name="**/.pyo/**"/>
+    <exclude name="**/*.pyc/**"/>
+    <exclude name="**/*.pyo/**"/>
+    <exclude name="**/.git/**"/>
+    <exclude name="**/*.hprof/**"/>
+    <exclude name="**/_svn/**"/>
+    <exclude name="**/.hg/**"/>
+    <exclude name="**/*.lib/**"/>
+    <exclude name="**/*~/**"/>
+    <exclude name="**/__pycache__/**"/>
+    <exclude name="**/.bundle/**"/>
+    <exclude name="**/*.rbc/**"/>
+    <exclude name="**/vssver.scc/**"/>
+    <exclude name="**/vssver2.scc/**"/>
+  </patternset>
+  <patternset id="library.patterns">
+    <include name="*.war"/>
+    <include name="*.ear"/>
+    <include name="*.apk"/>
+    <include name="*.zip"/>
+    <include name="*.swc"/>
+    <include name="*.ane"/>
+    <include name="*.egg"/>
+    <include name="*.jar"/>
+  </patternset>
+  <patternset id="compiler.resources">
+    <exclude name="**/?*.java"/>
+    <exclude name="**/?*.form"/>
+    <exclude name="**/?*.class"/>
+    <exclude name="**/?*.groovy"/>
+    <exclude name="**/?*.scala"/>
+    <exclude name="**/?*.flex"/>
+    <exclude name="**/?*.kt"/>
+    <exclude name="**/?*.clj"/>
+  </patternset>
+  
+  <!-- JDK definitions -->
+  
+  <property name="jdk.bin.1.8" value="${jdk.home.1.8}/bin"/>
+  <path id="jdk.classpath.1.8">
+    <fileset dir="${jdk.home.1.8}">
+      <include name="jre/lib/jfxswt.jar"/>
+      <include name="jre/lib/plugin.jar"/>
+      <include name="jre/lib/rt.jar"/>
+      <include name="jre/lib/javaws.jar"/>
+      <include name="jre/lib/deploy.jar"/>
+      <include name="jre/lib/management-agent.jar"/>
+      <include name="jre/lib/jsse.jar"/>
+      <include name="jre/lib/jce.jar"/>
+      <include name="jre/lib/jfr.jar"/>
+      <include name="jre/lib/charsets.jar"/>
+      <include name="jre/lib/resources.jar"/>
+      <include name="jre/lib/ext/zipfs.jar"/>
+      <include name="jre/lib/ext/localedata.jar"/>
+      <include name="jre/lib/ext/cldrdata.jar"/>
+      <include name="jre/lib/ext/nashorn.jar"/>
+      <include name="jre/lib/ext/dnsns.jar"/>
+      <include name="jre/lib/ext/sunpkcs11.jar"/>
+      <include name="jre/lib/ext/sunjce_provider.jar"/>
+      <include name="jre/lib/ext/sunec.jar"/>
+      <include name="jre/lib/ext/jfxrt.jar"/>
+    </fileset>
+  </path>
+  
+  <property name="project.jdk.home" value="${jdk.home.1.8}"/>
+  <property name="project.jdk.bin" value="${jdk.bin.1.8}"/>
+  <property name="project.jdk.classpath" value="jdk.classpath.1.8"/>
+  
+  
+  <!-- Project Libraries -->
+  
+  <path id="library.activemq:activemq-store-jdbc:2.0.classpath">
+    <pathelement location="${path.variable.maven_repository}/activemq/activemq-store-jdbc/2.0/activemq-store-jdbc-2.0.jar"/>
+  </path>
+  
+  <path id="library.classes12.classpath">
+    <pathelement location="${basedir}/web/WEB-INF/lib/classes12.jar"/>
+  </path>
+  
+  <path id="library.commons-fileupload-1.3.1.classpath">
+    <pathelement location="${basedir}/web/WEB-INF/lib/commons-fileupload-1.3.1.jar"/>
+  </path>
+  
+  <path id="library.commons-io-2.4.classpath">
+    <pathelement location="${basedir}/web/WEB-INF/lib/commons-io-2.4.jar"/>
+  </path>
+  
+  <path id="library.javax.servlet.jsp.jstl-api-1.2.1.classpath"/>
+  
+  <path id="library.javax.servlet:com.springsource.javax.servlet.jsp.jstl:1.2.0.v20110728.classpath">
+    <pathelement location="${path.variable.maven_repository}/javax/el/javax.el/2.2.0.v201105051105/javax.el-2.2.0.v201105051105.jar"/>
+    <pathelement location="${path.variable.maven_repository}/javax/servlet/com.springsource.javax.servlet.jsp.jstl/1.2.0.v20110728/com.springsource.javax.servlet.jsp.jstl-1.2.0.v20110728.jar"/>
+    <pathelement location="${path.variable.maven_repository}/javax/servlet/javax.servlet.jsp/2.2.0.v201103241009/javax.servlet.jsp-2.2.0.v201103241009.jar"/>
+    <pathelement location="${path.variable.maven_repository}/javax/servlet/javax.servlet/3.0.0.v201103241009/javax.servlet-3.0.0.v201103241009.jar"/>
+    <pathelement location="${path.variable.maven_repository}/org/apache/taglibs/com.springsource.org.apache.taglibs.standard/1.1.2.v20110517/com.springsource.org.apache.taglibs.standard-1.1.2.v20110517.jar"/>
+  </path>
+  
+  <path id="library.ojdbc6.classpath">
+    <pathelement location="${basedir}/web/WEB-INF/lib/ojdbc6.jar"/>
+  </path>
+  
+  
+  <!-- Application Server Libraries -->
+  
+  <path id="library.glassfish_4.1.0.classpath">
+    <pathelement location="/home/igor/glassfish-4.1/glassfish/modules/javax.ejb-api.jar"/>
+    <pathelement location="/home/igor/glassfish-4.1/glassfish/modules/javax.servlet-api.jar"/>
+    <pathelement location="/home/igor/glassfish-4.1/glassfish/modules/javax.servlet.jsp-api.jar"/>
+  </path>
+  
+  <path id="library.glassfish_4.1.0_-_jsf.classpath">
+    <pathelement location="/home/igor/glassfish-4.1/glassfish/modules/javax.faces.jar"/>
+  </path>
+  <!-- Register Custom Compiler Taskdefs -->
+  <property name="javac2.home" value="${idea.home}/lib"/>
+  <path id="javac2.classpath">
+    <pathelement location="${javac2.home}/javac2.jar"/>
+    <pathelement location="${javac2.home}/jdom.jar"/>
+    <pathelement location="${javac2.home}/asm-all.jar"/>
+    <pathelement location="${javac2.home}/jgoodies-forms.jar"/>
+  </path>
+  <target name="register.custom.compilers">
+    <taskdef name="javac2" classname="com.intellij.ant.Javac2" classpathref="javac2.classpath"/>
+    <taskdef name="instrumentIdeaExtensions" classname="com.intellij.ant.InstrumentIdeaExtensions" classpathref="javac2.classpath"/>
+  </target>
+  
+  <!-- Modules -->
+  
+  <import file="${basedir}/module_distancebetweencities.xml"/>
+  
+  <target name="init" description="Build initialization">
+    <!-- Perform any build initialization in this target -->
+  </target>
+  
+  <target name="clean" depends="clean.module.distancebetweencities, clean.artifact.distancebetweencities:war_exploded, clean.artifact.test_3lab:war_exploded" description="cleanup all"/>
+  
+  <target name="build.modules" depends="init, clean, compile.module.distancebetweencities" description="build all modules"/>
+  
+  <target name="init.artifacts">
+    <property name="artifacts.temp.dir" value="${basedir}/__artifacts_temp"/>
+    <property name="artifact.output.distancebetweencities:war_exploded" value="${basedir}/out/artifacts/distanceBetweenCities_war_exploded"/>
+    <property name="artifact.output.test_3lab:war_exploded" value="${basedir}/out/artifacts/test_3lab_war_exploded"/>
+    <mkdir dir="${artifacts.temp.dir}"/>
+  </target>
+  
+  <target name="clean.artifact.distancebetweencities:war_exploded" description="clean distanceBetweenCities:war exploded artifact output">
+    <delete dir="${artifact.output.distancebetweencities:war_exploded}"/>
+  </target>
+  
+  <target name="clean.artifact.test_3lab:war_exploded" description="clean test_3lab:war exploded artifact output">
+    <delete dir="${artifact.output.test_3lab:war_exploded}"/>
+  </target>
+  
+  <target name="artifact.distancebetweencities:war_exploded" depends="init.artifacts, compile.module.distancebetweencities" description="Build &#39;distanceBetweenCities:war exploded&#39; artifact">
+    <mkdir dir="${artifact.output.distancebetweencities:war_exploded}"/>
+    <mkdir dir="${artifact.output.distancebetweencities:war_exploded}/WEB-INF"/>
+    <mkdir dir="${artifact.output.distancebetweencities:war_exploded}/WEB-INF/classes"/>
+    <copy todir="${artifact.output.distancebetweencities:war_exploded}/WEB-INF/classes">
+      <fileset dir="${distancebetweencities.output.dir}"/>
+    </copy>
+    <mkdir dir="${artifact.output.distancebetweencities:war_exploded}/WEB-INF/lib"/>
+    <copy file="${basedir}/web/WEB-INF/lib/commons-fileupload-1.3.1.jar" tofile="${artifact.output.distancebetweencities:war_exploded}/WEB-INF/lib/commons-fileupload-1.3.1.jar"/>
+    <copy file="${path.variable.maven_repository}/activemq/activemq-store-jdbc/2.0/activemq-store-jdbc-2.0.jar" tofile="${artifact.output.distancebetweencities:war_exploded}/WEB-INF/lib/activemq-store-jdbc-2.0.jar"/>
+    <copy file="${basedir}/web/WEB-INF/lib/ojdbc6.jar" tofile="${artifact.output.distancebetweencities:war_exploded}/WEB-INF/lib/ojdbc6.jar"/>
+    <copy file="${basedir}/web/WEB-INF/lib/classes12.jar" tofile="${artifact.output.distancebetweencities:war_exploded}/WEB-INF/lib/classes12.jar"/>
+    <copy file="${basedir}/web/WEB-INF/lib/commons-io-2.4.jar" tofile="${artifact.output.distancebetweencities:war_exploded}/WEB-INF/lib/commons-io-2.4.jar"/>
+    <copy todir="${artifact.output.distancebetweencities:war_exploded}">
+      <fileset dir="${basedir}/web"/>
+    </copy>
+    <mkdir dir="${artifact.output.distancebetweencities:war_exploded}/WEB-INF"/>
+    <copy file="${basedir}/web/WEB-INF/web.xml" tofile="${artifact.output.distancebetweencities:war_exploded}/WEB-INF/web.xml"/>
+  </target>
+  
+  <target name="artifact.test_3lab:war_exploded" depends="init.artifacts, compile.module.distancebetweencities" description="Build &#39;test_3lab:war exploded&#39; artifact">
+    <mkdir dir="${artifact.output.test_3lab:war_exploded}"/>
+    <mkdir dir="${artifact.output.test_3lab:war_exploded}/WEB-INF"/>
+    <mkdir dir="${artifact.output.test_3lab:war_exploded}/WEB-INF/classes"/>
+    <copy todir="${artifact.output.test_3lab:war_exploded}/WEB-INF/classes">
+      <fileset dir="${distancebetweencities.output.dir}"/>
+    </copy>
+    <mkdir dir="${artifact.output.test_3lab:war_exploded}/WEB-INF/lib"/>
+    <copy file="${basedir}/web/WEB-INF/lib/commons-fileupload-1.3.1.jar" tofile="${artifact.output.test_3lab:war_exploded}/WEB-INF/lib/commons-fileupload-1.3.1.jar"/>
+    <copy file="${path.variable.maven_repository}/activemq/activemq-store-jdbc/2.0/activemq-store-jdbc-2.0.jar" tofile="${artifact.output.test_3lab:war_exploded}/WEB-INF/lib/activemq-store-jdbc-2.0.jar"/>
+    <copy file="${basedir}/web/WEB-INF/lib/ojdbc6.jar" tofile="${artifact.output.test_3lab:war_exploded}/WEB-INF/lib/ojdbc6.jar"/>
+    <copy file="${basedir}/web/WEB-INF/lib/commons-io-2.4.jar" tofile="${artifact.output.test_3lab:war_exploded}/WEB-INF/lib/commons-io-2.4.jar"/>
+    <copy file="${basedir}/web/WEB-INF/lib/classes12.jar" tofile="${artifact.output.test_3lab:war_exploded}/WEB-INF/lib/classes12.jar"/>
+  </target>
+  
+  <target name="build.all.artifacts" depends="artifact.distancebetweencities:war_exploded, artifact.test_3lab:war_exploded" description="Build all artifacts">
+    
+    <!-- Delete temporary files -->
+    <delete dir="${artifacts.temp.dir}"/>
+  </target>
+  
+  <target name="all" depends="build.modules, build.all.artifacts" description="build all"/>
+</project>

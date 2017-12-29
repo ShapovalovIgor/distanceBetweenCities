@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<class>
+    <distanceBetweenCities>
+        <fromCity>Tolyatti</fromCity>
+        <ToCity>Samara</ToCity>
+        <distance>120000</distance>
+    </distanceBetweenCities>
+    <distanceBetweenCities>
+        <fromCity>Moskva</fromCity>
+        <ToCity>Samara</ToCity>
+        <distance>1000000</distance>
+    </distanceBetweenCities>
+    <distanceBetweenCities>
+        <fromCity>Tolyatti</fromCity>
+        <ToCity>Moskva</ToCity>
+        <distance>1110000</distance>
+    </distanceBetweenCities>
+</class>
